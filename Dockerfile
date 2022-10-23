@@ -1,7 +1,7 @@
 #################
 # Build the app #
 #################
-FROM node:latest-alpine AS build
+FROM node:latest AS build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN npm install
