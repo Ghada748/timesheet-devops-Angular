@@ -1,7 +1,9 @@
 # Build the app #
 
 FROM nginx:alpine
-COPY package.json /app/package.json
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y nodejs \
+    npm
 RUN npm install
 RUN npm run build --prod
 WORKDIR /usr/local/app
