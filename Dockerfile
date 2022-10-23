@@ -1,10 +1,11 @@
 # Build the app #
 
 FROM nginx:1.15.8-alpine
+RUN npm install
+RUN npm run build --prod
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
-#RUN npm install
-RUN npm run build --prod
+
 
 # Run in NGINX #
 
