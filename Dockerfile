@@ -1,22 +1,17 @@
 # Build the app #
 
-FROM nginx:alpine
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y nodejs \
-    npm
-RUN npm install
-RUN npm run build --prod
+FROM node:16-alpine AS node
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
+RUN npm install
+RUN npm run build --prod
 
-COPY /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 # Run in NGINX #
 
-#FROM nginx:alpine 
-
+FROM nginx:alpine 
+COPY --from=node /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 
 EXPOSE 80
-# Run in NGINX #
 
 
 
