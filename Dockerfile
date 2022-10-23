@@ -3,6 +3,7 @@
 FROM nginx:alpine  
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
+CMD ["/bin/bash","-i","/bin/run.sh"]
 RUN npm install
 RUN npm run build --prod
 
