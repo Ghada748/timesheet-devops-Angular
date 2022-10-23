@@ -7,7 +7,7 @@ COPY ./ /usr/local/app/
 RUN npm install
 RUN npm run build --prod
 
-COPY --from=node /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
+COPY  /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 
 EXPOSE 80
 
