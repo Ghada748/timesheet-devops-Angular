@@ -1,13 +1,13 @@
 # Build the app #
 
-FROM nginx:1.15.8-alpine
-COPY /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
+FROM nginx:alpine
+
 RUN npm install
 RUN npm run build --prod
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 
-
+COPY /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 # Run in NGINX #
 
 #FROM nginx:alpine 
