@@ -1,7 +1,7 @@
 #################
 # Build the app #
 #################
-FROM node:16-alpine as node
+FROM node:16-alpine3.16 as node
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN npm install
