@@ -1,15 +1,16 @@
-
 # Build the app #
 
-FROM nginx:1.23-alpine 
-
+FROM node:16-alpine AS node
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
-
 RUN npm install
 RUN npm run build --prod
-COPY  /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
-CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
+
+# Run in NGINX #
+
+FROM nginx:alpine 
+COPY --from=node /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
+
 EXPOSE 80
 # Run in NGINX #
 
