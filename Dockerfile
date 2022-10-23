@@ -9,6 +9,7 @@ COPY ./ /usr/local/app/
 RUN npm install
 RUN npm run build --prod
 COPY  /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
+CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
 EXPOSE 80
 # Run in NGINX #
 
