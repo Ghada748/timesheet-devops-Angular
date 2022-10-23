@@ -5,9 +5,10 @@ FROM nginx:1.23-alpine
 
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
-COPY  /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
+
 RUN npm install
 RUN npm run build --prod
+COPY  /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 EXPOSE 80
 # Run in NGINX #
 
