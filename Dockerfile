@@ -9,7 +9,7 @@ FROM nginx:alpine
 # Run in NGINX #
 
 #FROM nginx:alpine 
-COPY  ./dist/crudtuto-Front /usr/share/nginx/html
+COPY  ./dist/crudtuto-Front/. /usr/share/nginx/html
 
 EXPOSE 80
 
