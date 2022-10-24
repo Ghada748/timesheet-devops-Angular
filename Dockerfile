@@ -8,10 +8,10 @@ RUN npm run build --prod
 
 # Run in NGINX #
 
-FROM nginx:alpine 
-COPY --from=node /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
+#FROM nginx:alpine 
+#COPY --from=node /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 
-EXPOSE 80
+#EXPOSE 80
 
 
 
