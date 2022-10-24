@@ -3,13 +3,13 @@
 FROM nginx:alpine 
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
-#RUN npm install
-#RUN npm run build --prod
+RUN npm install
+RUN npm run build --prod
 
 # Run in NGINX #
 
 #FROM nginx:alpine 
-COPY  ./dist/crudtuto-Front/. /usr/share/nginx/html
+COPY  /usr/local/app/dist/crudtuto-Front /usr/share/nginx/html
 
 EXPOSE 80
 
