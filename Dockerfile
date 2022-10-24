@@ -1,8 +1,8 @@
 # Build the app #
 
 FROM nginx:alpine 
-#WORKDIR /usr/local/app
-#COPY ./ /usr/local/app/
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
 #RUN npm install
 #RUN npm run build --prod
 
