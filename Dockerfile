@@ -1,6 +1,6 @@
 # Build the app #
 
-FROM node:16-alpine AS node
+FROM nginx:alpine 
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN npm install
